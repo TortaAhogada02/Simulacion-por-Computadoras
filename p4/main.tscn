@@ -1,0 +1,25 @@
+[gd_scene load_steps=5 format=3 uid="uid://d0dparpw1c3ee"]
+
+[ext_resource type="Script" uid="uid://bbparsvxqj0if" path="res://player.gd" id="1_0xm2m"]
+[ext_resource type="Texture2D" uid="uid://bd5y3l6vt34e0" path="res://Player.png" id="2_h2yge"]
+[ext_resource type="PackedScene" uid="uid://b1ebkgbbq6ks" path="res://Pickup.tscn" id="3_h2yge"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1bvp3"]
+size = Vector2(430, 533)
+
+[node name="Main" type="Node2D"]
+
+[node name="Player" type="CharacterBody2D" parent="." groups=["player"]]
+script = ExtResource("1_0xm2m")
+
+[node name="Sprite2D" type="Sprite2D" parent="Player"]
+position = Vector2(207, 272)
+scale = Vector2(0.334167, 0.445)
+texture = ExtResource("2_h2yge")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
+position = Vector2(216, 266.5)
+shape = SubResource("RectangleShape2D_1bvp3")
+
+[node name="Pickup" parent="." instance=ExtResource("3_h2yge")]
+position = Vector2(2, -3)

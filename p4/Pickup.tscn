@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://b1ebkgbbq6ks"]
+
+[ext_resource type="Script" uid="uid://cg3vkhh470d3r" path="res://pickup.gd" id="1_clep7"]
+[ext_resource type="Texture2D" uid="uid://bhkr325nkxn3m" path="res://Coin.png" id="2_7qwl2"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jk654"]
+size = Vector2(226, 230)
+
+[node name="Pickup" type="Area2D"]
+script = ExtResource("1_clep7")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-117, -402)
+texture = ExtResource("2_7qwl2")
+offset = Vector2(800, 800)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(680, 400)
+shape = SubResource("RectangleShape2D_jk654")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
